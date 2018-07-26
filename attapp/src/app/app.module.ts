@@ -10,7 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { RegistrationPage} from "../pages/registration/registration";
 import { BereadyApiProvider } from '../providers/beready-api/beready-api';
-import {StudentsPage} from "../pages/students/students";
+import { StudentsPage } from "../pages/students/students";
 
 @NgModule({
   declarations: [

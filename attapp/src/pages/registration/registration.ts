@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BereadyApiProvider } from "../../providers/beready-api/beready-api";
-import {StudentsPage} from "../students/students";
+import { StudentsPage } from "../students/students";
 
 /**
  * Generated class for the RegistrationPage page.

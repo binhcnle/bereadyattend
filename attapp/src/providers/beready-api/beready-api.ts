@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class BereadyApiProvider {
 
-    private apiUrl = 'http://bereadyattend.local/'
+    private apiUrl = 'http://webservice.bereadyattend.local/'
 
   constructor(
       public http: HttpClient
