@@ -34,7 +34,7 @@ export class RegistrationPage {
       console.log('Name ' + this.registrationDetails.name);
       console.log('Student ID ' + this.registrationDetails.sid);
 
-      this.BereadyApi.registerNewStudent(this.registrationDetails);
+      this.BereadyApi.recordAttendance(this.registrationDetails);
 
       this.navCtrl.push(StudentsPage);
     }

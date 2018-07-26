@@ -7,12 +7,27 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Students</ion-title>
+    <ion-title>Recent Students</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+    <!-- Add this if you want the ability to get the app refresh when pulling down -->
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-list>
+        <div *ngFor="let student of students" ion-item>
+            <span class="student_id">{{student.student_id}}</span>
+            <br>
+            <span class="student_name">{{student.student_name}}</span>
+            <br>
+            <span class="check_in_time">checked in {{student.check_in_time}}</span>
+        </div>
+    </ion-list>
 
 </ion-content>

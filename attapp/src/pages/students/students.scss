@@ -1,3 +1,16 @@
 page-students {
+  span.student_id {
+    font-weight: bold;
+    color:red;
+  }
 
+  span.student_name {
+    font-size:25px;
+  }
+
+  span.check_in_time {
+    font-weight: bold;
+    font-size: 12px;
+    color: #333333;
+  }
 }

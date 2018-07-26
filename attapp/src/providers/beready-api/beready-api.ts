@@ -18,12 +18,24 @@ export class BereadyApiProvider {
     console.log('Hello BereadyApiProvider Provider');
   }
 
-  registerNewStudent(registrationDetails) {
+  // This function is used to send update request to webservices
+  recordAttendance(registrationDetails) {
       return new Promise((resolve, reject) => {
-          this.http.post(this.apiUrl+'registerNewStudent.php', JSON.stringify(registrationDetails), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+          this.http.post(this.apiUrl+'recordAttendance.php', JSON.stringify(registrationDetails), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
               .subscribe(res => {
                   resolve(res);
                   console.log(res['message']);
+              }, (err) => {
+                  reject(err);
+              });
+      });
+  }
+
+  getStudents() {
+      return new Promise((resolve, reject) => {
+          this.http.get(this.apiUrl+'getStudents.php', {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+              .subscribe(res => {
+                  resolve(res);
               }, (err) => {
                   reject(err);
               });

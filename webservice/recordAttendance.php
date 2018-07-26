@@ -7,7 +7,7 @@ header("Access-Control-Allow-Origin: *");
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "attapp";
+$dbname = "bereadyattend";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -19,11 +19,11 @@ if (!$conn) {
 // Get JSON data from POST method
 $data = json_decode(file_get_contents('php://input'), true);
 
-$name = $data["name"];
 $sid = $data["sid"];
-$email = $sid . "@student.rmit.edu.au"; // Generate email from student ID
+$name = $data["name"];
 
-$sql = "INSERT INTO att_student (rmit_id, full_name, email) VALUES ('{$name}', '{$sid}', '{$email}')";
+
+$sql = "INSERT INTO att_class_attendance (student_id, student_name) VALUES ('{$sid}','{$name}')";
 
 if (mysqli_query($conn, $sql)) {
     echo json_encode(array('message' => 'OK'));
