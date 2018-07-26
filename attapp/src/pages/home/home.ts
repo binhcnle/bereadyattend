@@ -11,4 +11,10 @@ export class HomePage {
 
   }
 
+
+  sayHello() {
+      // alert("haha");
+      console.log("hello");
+  }
+
 }
