@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Http2SecureServer } from 'http2';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Attendance } from '../types';
 import { Observable } from 'rxjs';
 import { Tab2Page } from '../tab2/tab2.page';
 
-
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+  })
+};
 
 @Component({
   selector: 'app-tab1',
@@ -17,7 +21,6 @@ export class Tab1Page implements OnInit{
   private attendanceDetails = { name: '', sid: '' };
   private baseUrl = "http://webservice.bereadyattend.local/recordAttendance.php";
   
-
   constructor(public httpClient: HttpClient) {
 
   }
@@ -35,11 +38,11 @@ export class Tab1Page implements OnInit{
 
     console.log(finalUrl);
 
-    return this.http.post(finalUrl, "", httpOptions)
-    .pipe(
-      catchError(this.handleError('addHero', hero))
-    );
+    this.httpClient.get(finalUrl).subscribe((response) => {
+      console.log(response);
+    });
     
+    return "";
     //this.navCtrl.push(Tab2Page, {});
     }
     
