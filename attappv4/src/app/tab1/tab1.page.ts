@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Attendance } from '../types';
 import { Observable } from 'rxjs';
 import { Tab2Page } from '../tab2/tab2.page';
+import { Router } from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -21,7 +22,7 @@ export class Tab1Page implements OnInit{
   private attendanceDetails = { name: '', sid: '' };
   private baseUrl = "http://webservice.bereadyattend.local/recordAttendance.php";
   
-  constructor(public httpClient: HttpClient) {
+  constructor(public httpClient: HttpClient,public router: Router) {
 
   }
   ngOnInit() {
@@ -42,7 +43,9 @@ export class Tab1Page implements OnInit{
       console.log(response);
     });
     
-    return "";
+    this.router.navigateByUrl('/tabs/tab2');
+
+    return ""; 
     //this.navCtrl.push(Tab2Page, {});
     }
     

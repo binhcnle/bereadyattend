@@ -9,7 +9,7 @@ import { AttendanceService } from '../attendance.service';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-  attendanceList: Observable<Attendance[]>
+  attendanceList: Observable<Attendance[]>;
 
   constructor(attendanceService: AttendanceService) {
      this.attendanceList = attendanceService.getAllAttendances();
