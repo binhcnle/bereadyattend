@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Be Ready Attendance
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <!-- with name set -->
+<ion-card>
+<ion-card-content>
+    <ion-text color="secondary">
+      <h1 style="text-align: center">Record your attendance</h1>
+      <Br>
+    </ion-text>
+    
+    <form (ngSubmit)="this.recordAttendance()">
+        <ion-item>
+            <ion-label fixed>Name</ion-label>
+            <ion-input type="text" [(ngModel)]="attendanceDetails.name" [ngModelOptions]="{standalone: true}" value=""></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>Student ID</ion-label>
+            <ion-input type="text" [(ngModel)]="attendanceDetails.sid" [ngModelOptions]="{standalone: true}" ></ion-input>
+        </ion-item>
+<br>
+      <ion-button type="ngSubmit" expand="full">Record</ion-button>
+
+    </form>
+
+
+  </ion-card-content>
+  </ion-card>
+
+</ion-content>

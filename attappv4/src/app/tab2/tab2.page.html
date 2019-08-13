@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      History Attendance
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card button *ngFor="let attendance of (attendanceList | async)">
+  <ion-card-header>
+      <ion-card-title>{{attendance.student_name}}</ion-card-title>
+      <ion-label>Student ID: {{attendance.student_id}}</ion-label>
+  </ion-card-header>
+
+  </ion-card>
+
+
+</ion-content>

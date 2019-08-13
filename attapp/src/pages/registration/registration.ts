@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BereadyApiProvider } from "../../providers/beready-api/beready-api";
 import { StudentsPage } from "../students/students";
+import { RequestOptions } from '@angular/common/http';
+
 
 /**
  * Generated class for the RegistrationPage page.
@@ -34,9 +36,24 @@ export class RegistrationPage {
       console.log('Name ' + this.registrationDetails.name);
       console.log('Student ID ' + this.registrationDetails.sid);
 
-      this.BereadyApi.recordAttendance(this.registrationDetails);
-
-      this.navCtrl.push(StudentsPage);
+      var headers = new Headers();
+      headers.append("Accept", 'application/json');
+      headers.append('Content-Type', 'application/json' );
+      const requestOptions = new RequestOptions({ headers: headers });
+  
+      let postData = {
+              "name": "Customer004",
+              "email": "customer004@email.com",
+              "tel": "0000252525"
+      }
+  
+      this.http.post("http://127.0.0.1:3000/customers", postData, requestOptions)
+        .subscribe(data => {
+          console.log(data['_body']);
+         }, error => {
+          console.log(error);
+        });
+    }
     }
 }
 
